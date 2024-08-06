@@ -1,0 +1,168 @@
+$color_black: #303030
+$color_bg: #F7F0E9
+$color_berry: #D56134
+$color_top: #9C4215
+$color_middle_1: #F3D1BA
+$color_middle_2: #F7E1CD
+$color_bottom: #773000
+$color_cherry_1: #FF613A
+$color_cherry_2: #DF5333
+
+*
+  position: relative
+  font-family: 漢儀新蒂珍珠奶茶
+  box-sizing: border-box
+ 
+  // border: solid 4px
+  // padding: 4px
+
+@mixin border
+  border: solid 5px $color_black
+  
+@mixin pos($l,$t)
+  left: $l
+  top:$t
+  
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+  
+@mixin flex_center
+  display: flex
+  justify-content: center
+  align-items: center
+  
+html,body
+  +size(100%)
+  +flex_center
+  
+.container
+  margin: auto
+  width: 400px
+  
+.cake
+  width:360px
+  
+.top,.cherry,.bottom,.middle,.berry
+  +border
+  
+.top
+  height: 16px
+  
+.middle
+  height: 48px
+
+.bottom1
+  height: 30px
+
+.bottom2
+  height: 8px
+  
+.bottom3
+  height: 12px
+  
+.cherry
+  +size(50px)
+  margin: auto
+  margin-top: -45px
+  
+.berry
+  +size(15px)
+  
+//顏色設定
+
+body
+  background-color: $color_bg
+  
+.top,.bottom2
+  background-color: $color_top
+  
+.middle
+  background-color: $color_bg
+  box-shadow: -25px 0px $color_middle_1 inset,-230px 0px $color_middle_2 inset
+.bottom1,.bottom3
+   background-color: $color_bottom
+   box-shadow: -160px 0px darken($color_bottom,4) inset
+  
+.cherry
+  background-color: $color_cherry_1
+  box-shadow: -5px -5px $color_cherry_2 inset
+  
+.berry
+  background-color: $color_berry
+  
+.top
+  border-radius: 20px
+  
+.middle
+  margin-top: -5px
+  .berry
+    border-radius: 50%
+    position: absolute
+    &:nth-child(1)
+      +pos(20px,16px)
+    &:nth-child(2)
+      +pos(70px,1px)
+    &:nth-child(3)
+      +pos(150px,20px)
+    &:nth-child(4)
+      +pos(205px,0px)
+    &:nth-child(5)
+      +pos(295px,18px)
+
+.bottom
+  margin-top: -5px
+
+.cherry
+  border-radius: 50%
+  .head
+    width: 100px
+    margin-left: -50px
+    margin-top: -50px
+    path
+      stroke: $color_black
+      stroke-width: 5px
+      fill: none
+      
+.dish
+  width: 420px
+  border-top: solid 5px $color_black
+  margin-top: -4px
+  margin-left: -30px
+  box-shadow: 0px 6px 0px 1px $color_middle_1
+  
+h1,h2
+  margin: 0
+  font-weight: bold
+  animation: fadeIn 1s 1s both
+  
+h1
+  font-size: 4em
+  margin: 10px 0px
+  
+.cake
+  margin-top: 90px
+  cursor: pointer
+  
+.dish
+  animation: rubberBand 1s 0.1s both
+.bottom
+  animation: rubberBand 1s 0.2s both
+.middle
+  animation: rubberBand 1s 0.3s both
+.top
+  animation: rubberBand 1s 0.4s both
+.cake:hover
+  animation: rubberBand 1s 0.4s both
+  .cherry
+    animation: tada 1s 0.4s both
+  .berry
+    animation: wobble 1s 0.4s both
+    
+ 
+    
+    
+    
+    
+   
+  
